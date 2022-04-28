@@ -1,6 +1,6 @@
 package com.sonatype.infosec.owasp.a01.responses;
 
-import Enumerations.ApiErrorCode;
+import com.sonatype.infosec.owasp.a01.enumerations.ApiErrorCode;
 
 public class JsonResponse {
 	String message;

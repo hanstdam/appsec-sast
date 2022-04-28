@@ -1,6 +1,6 @@
 package com.sonatype.infosec.owasp.a01.exceptions;
 
-import Enumerations.ApiErrorCode;
+import com.sonatype.infosec.owasp.a01.enumerations.ApiErrorCode;
 
 public class NotFoundException extends Exception {
 	private static final long serialVersionUID = 1L;

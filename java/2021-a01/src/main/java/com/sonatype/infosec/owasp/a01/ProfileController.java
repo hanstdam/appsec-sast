@@ -12,9 +12,7 @@ import java.util.HashMap;
 
 import com.sonatype.infosec.owasp.a01.exceptions.NotFoundException;
 import com.sonatype.infosec.owasp.a01.models.Profile;
-
-import Enumerations.ApiErrorCode;
-
+import com.sonatype.infosec.owasp.a01.enumerations.ApiErrorCode;
 
 @RestController
 public class ProfileController {
