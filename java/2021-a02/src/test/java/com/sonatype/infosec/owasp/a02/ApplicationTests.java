@@ -1,4 +1,4 @@
-package com.sonatype.infosec.owasp.a01;
+package com.sonatype.infosec.owasp.a02;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
