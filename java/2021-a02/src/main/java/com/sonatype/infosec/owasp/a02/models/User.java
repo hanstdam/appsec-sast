@@ -4,16 +4,10 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import com.sonatype.infosec.owasp.a02.utilities.PasswordGenerator;
+
 public class User extends BasicUser {
 	String plainTextPassword;
-	
-	public String getUsername() {
-		return username;
-	}
-	
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	
 	public String getHashedPassword() throws NoSuchAlgorithmException {
 		// CWE-327: Use of a Broken or Risky Cryptographic Algorithm
@@ -27,18 +21,17 @@ public class User extends BasicUser {
 		this.plainTextPassword = plainTextPassword;
 	}
 	
-	public Integer getAge() {
-		return age;
-	}
-	
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-	
 	public BasicUser toBasic() {
 		BasicUser basic = new BasicUser();
 		basic.setUsername(username);
 		basic.setAge(age);
 		return basic;
+	}
+	
+	public void ensurePasswordIsPopulated() {
+		if (plainTextPassword == null || plainTextPassword.trim().isEmpty()) {
+			PasswordGenerator generator = new PasswordGenerator();
+			plainTextPassword = generator.get();
+		}
 	}
 }

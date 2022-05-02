@@ -22,6 +22,7 @@ public class UserController {
 	public ResponseEntity<BasicUser> saveUser(@RequestBody User user) throws PersistentDataException {
 		UserRepository userRepository = new UserRepository();
 
+		user.ensurePasswordIsPopulated();
 		userRepository.createUser(user);
 		
 		return new ResponseEntity<BasicUser>(user.toBasic(), HttpStatus.CREATED);
