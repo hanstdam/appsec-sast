@@ -31,4 +31,16 @@ public class UserController {
 
 		throw new NotFoundException(ApiErrorCode.USER_NOT_FOUND, "User not found");
 	}
+
+	@RequestMapping(value = "/user", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+	@ResponseBody
+	public String getUserPage(String userName) {
+		// CWE-79: Cross-site Scripting
+		return "<html>\n"
+			+ "<header><title>Welcome</title></header>\n"
+			+ "<body>\n"
+			+ "Hello " + userName + "\n"
+			+ "</body>\n"
+			+ "</html>";
+	}
 }
