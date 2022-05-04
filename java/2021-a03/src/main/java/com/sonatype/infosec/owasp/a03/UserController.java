@@ -13,7 +13,9 @@ import com.sonatype.infosec.owasp.a03.exceptions.NotFoundException;
 import com.sonatype.infosec.owasp.a03.exceptions.PersistentDataException;
 import com.sonatype.infosec.owasp.a03.models.Option;
 import com.sonatype.infosec.owasp.a03.models.User;
+import com.sonatype.infosec.owasp.a03.models.UserSetting;
 import com.sonatype.infosec.owasp.a03.repositories.UserRepository;
+import com.sonatype.infosec.owasp.a03.repositories.UserSettingRepository;
 
 @RestController
 public class UserController {
@@ -42,5 +44,19 @@ public class UserController {
 			+ "Hello " + userName + "\n"
 			+ "</body>\n"
 			+ "</html>";
+	}
+
+	@RequestMapping(value = "/user/settings", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public ResponseEntity<UserSetting> getUserSettings(String userId) throws NotFoundException {
+		UserSettingRepository userSettingRepository = new UserSettingRepository();
+
+		Option<UserSetting> userSettingOption = userSettingRepository.getUserSettings(userId);
+		
+		if (userSettingOption.hasValue()) {
+			return new ResponseEntity<UserSetting>(userSettingOption.getValue(), HttpStatus.OK);
+		}
+
+		throw new NotFoundException(ApiErrorCode.USER_SETTING_NOT_FOUND, "User settings not found");
 	}
 }
