@@ -21,7 +21,6 @@ public class UserRepository {
 	private DataSource dataSource;
 	
 	public Option<User> getUser(String userId) throws PersistentDataException {
-		// CWE-89: SQL Injection
 		final String sql = "select user_id, name, age from users where user_id = ?";
 		try (Connection connection = dataSource.getConnection()) {
 			try (PreparedStatement statement = connection.prepareStatement(sql)) {
