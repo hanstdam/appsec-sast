@@ -68,5 +68,9 @@ jobs:
       working-directory: ./java/2021-a03
       run: ./mvnw clean install
 
+    - name: Build Java 2021-a06
+      working-directory: ./java/2021-a06
+      run: ./mvnw clean install
+
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
