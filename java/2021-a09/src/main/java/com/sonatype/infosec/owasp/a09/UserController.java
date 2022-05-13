@@ -33,8 +33,7 @@ public class UserController {
 		int id = -1;
 		try {
 			id = Integer.parseInt(idAsString);
-		}
-		catch (NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			// CWE-117: Improper Output Neutralization for Logs
 			logger.info("Failed to parse id = {}", idAsString);
 			throw new BadRequestException(ApiErrorCode.USER_CONTROLLER_FAILED_TO_PARSE_USER_ID, "Unable to parse user id");
