@@ -28,6 +28,7 @@ public class ServiceController {
 		String serviceUrl = request.getParameter("url");
 		try {
 			URL url = new URL(serviceUrl);
+			// CWE-918: Server-Side Request Forgery (SSRF)
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
 			BufferedReader buffer = new BufferedReader(new InputStreamReader(connection.getInputStream()));
