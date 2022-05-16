@@ -1,1 +1,1 @@
-jdkVersion = "17"
+build = "mvnw clean install"
