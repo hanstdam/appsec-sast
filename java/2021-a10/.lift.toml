@@ -1,1 +1,1 @@
-build = "mvnw clean install"
+build = "./mvnw clean install"
