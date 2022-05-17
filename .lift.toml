@@ -1,4 +1,2 @@
 # ROOT LEVEL LIFT CONFIGURATION
 # https://help.sonatype.com/lift/configuration-reference
-
-jdkVersion = "11"
