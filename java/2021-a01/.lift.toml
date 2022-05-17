@@ -2,3 +2,4 @@
 # https://help.sonatype.com/lift/configuration-reference
 
 jdkVersion = "11"
+build = "./mvnw clean install"
